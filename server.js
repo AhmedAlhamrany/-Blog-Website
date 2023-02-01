@@ -5,7 +5,7 @@
 * 
 *  Name: Ahmed Alhamrany Student ID: 144654217 Date: 2/1/2023
 *
-*  Cyclic Web App URL: ________________________________________________________
+*  Cyclic Web App URL: https://rich-pink-termite-wear.cyclic.app/
 *
 *  GitHub Repository URL: https://github.com/AhmedAlhamrany/web322-app
 *
