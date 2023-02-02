@@ -37,8 +37,10 @@ body{
 
 header {  
   background-color: rgb(63, 63, 65);  
-  left: 0;  
-  right: 0;  
+  left: 0px;  
+  right: 0px;  
   top: 15px;  
   height: 40px;  
+  font-size: 30px;
+  border-radius: 20px;
   }  
