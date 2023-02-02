@@ -23,11 +23,6 @@
   color: antiquewhite;
 }
 
-#nav{
- font-size: 40px;
- top: -10px;
-}
-
 body{
   background-color: black;
 }
@@ -36,7 +31,7 @@ body{
   color: antiquewhite;
 }
 
-header {  
+header{  
   background-color: rgb(63, 63, 65);  
   left: 0px;  
   right: 0px;  
@@ -46,3 +41,7 @@ header {
   border-radius: 5px;
   color: azure;
   }  
+
+  #nav-text{
+    top: -10px;
+  }
