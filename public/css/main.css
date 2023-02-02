@@ -19,3 +19,11 @@
   position: relative;
   top: -35px;
 }
+
+#nav{
+ font-size: 40px;
+}
+
+body{
+  background-color: black;
+}
