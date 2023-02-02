@@ -28,16 +28,18 @@
 }
 
 body{
-  background-color: black;
+  background-color: rgb(12, 12, 12);
 }
 
 #white{
   color: antiquewhite;
 }
 
-.top {
-  padding: 60px;
-  background: #3605bd;
-  color: white;
-  font-size: 30px;
-}
+header {  
+  background-color: rgb(54, 14, 233);  
+  position: fixed;   
+  top: 5px;  
+  height: 40px;  
+  display: flex;  
+   
+  }  
