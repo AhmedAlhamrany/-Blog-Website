@@ -31,6 +31,12 @@ body{
   background-color: black;
 }
 
-#h2{
+#white{
   color: antiquewhite;
+}
+
+.top {
+  padding: 60px;
+  background: #3605bd;
+  font-size: 30px;
 }
