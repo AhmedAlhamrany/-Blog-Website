@@ -100,4 +100,101 @@ function getCategories()
         }
     });
 }
-module.exports = {initialize, getAllPosts, getPublishedPosts, getCategories};
+
+function addPost(postData)
+{
+
+    return new Promise((resolve, reject) =>
+    {
+
+        if(postData.published == null)
+        {
+            postData.published = false;
+        }
+        else
+        {
+            postData.published = true;
+        }
+
+        postData.id = posts.length + 1;
+        var data = posts.push(postData);
+
+        resolve(data);
+    });
+}
+
+function getPostsByCategory(category)
+{
+    var categoryId = [];
+
+    return new Promise((resolve, reject) => 
+    {
+
+      for(var i = 0; i < posts.length; i++)
+      {
+        if(posts[i].category == category)
+        {
+            categoryId.push(posts[i])
+        }
+      }
+      
+      if(categoryId.length == 0)
+      {
+        reject("no results returned");
+      }
+       
+      resolve(categoryId);
+      
+    });
+}
+
+function getPostsByMinDate(minDateStr)
+{
+    var date = [];
+
+    return new Promise((resolve, reject) => 
+    {
+
+        for(var i = 0; i < posts.length; i++)
+        {
+            if(new Date(posts[i].postDate) >= new Date(minDateStr))
+            {
+                console.log("The postDate value is greater than minDateStr");
+                date.push(posts[i]);
+            }
+        }
+
+        if(date.length == 0)
+        {
+            reject("no results returned");
+        }
+
+        resolve(date);
+    });
+}
+
+function getPostById(id)
+{
+    var ID =  [];
+
+    return new Promise((resolve, reject) => 
+    {
+
+        for(var i = 0; i < posts.length; i++)
+        {
+            if(posts[i].id == id)
+            {
+                ID.push(posts[i]);
+            }
+        }
+
+        if(ID.length == 0)
+        {
+            reject("no results returned");
+        }
+
+        resolve(ID);
+    });
+}
+
+module.exports = {initialize, getAllPosts, getPublishedPosts, getCategories, addPost, getPostsByCategory, getPostsByMinDate, getPostById};
