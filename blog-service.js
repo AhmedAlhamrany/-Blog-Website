@@ -116,7 +116,12 @@ function addPost(postData)
             postData.published = true;
         }
 
+        var date = new Date();
+        var formatDate = date.toISOString().substring(0,10);
+
         postData.id = posts.length + 1;
+        postData.postDate = formatDate;
+
         var data = posts.push(postData);
 
         resolve(data);
@@ -175,26 +180,43 @@ function getPostsByMinDate(minDateStr)
 
 function getPostById(id)
 {
-    var ID =  [];
+    var ID = [];
 
-    return new Promise((resolve, reject) => 
+    return new Promise((resolve,reject)=>{ //from generic Assignment 3 solution
+        ID = posts.find(post => post.id == id);
+
+        if(ID){
+            resolve(ID);
+        }else{
+            reject("no result returned");
+        }
+    });
+}
+
+function getPublishedPostsByCategory(category) {
+
+    var publishedPost = []
+
+    return new Promise((resolve,reject) =>
     {
 
         for(var i = 0; i < posts.length; i++)
         {
-            if(posts[i].id == id)
+            if(posts[i].published == true && posts[i].category == category)
             {
-                ID.push(posts[i]);
+                publishedPost.push(posts[i]);
             }
         }
-
-        if(ID.length == 0)
+    
+        if(publishedPost.length != 0)
+        {
+            resolve(publishedPost);
+        }
+        else if(publishedPost.length == 0)
         {
             reject("no results returned");
         }
-
-        resolve(ID);
     });
 }
 
-module.exports = {initialize, getAllPosts, getPublishedPosts, getCategories, addPost, getPostsByCategory, getPostsByMinDate, getPostById};
+module.exports = {initialize, getAllPosts, getPublishedPosts, getCategories, addPost, getPostsByCategory, getPostsByMinDate, getPostById, getPublishedPostsByCategory};
