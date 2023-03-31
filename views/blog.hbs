@@ -10,7 +10,7 @@
             <br /><br />
             {{#safeHTML data.post.body}}{{/safeHTML}}<br /><br />
             <strong>Category: {{data.post.category}}</strong><br />
-            <strong>Last Updated: {{data.post.postDate}}</strong> <br /><br />
+            <strong>Last Updated: {{#formatDate data.post.postDate}}{{/formatDate}}</strong> <br /><br />
            
         </article>
       

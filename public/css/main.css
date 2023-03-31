@@ -4,7 +4,7 @@
   max-width: 770px;
   word-wrap:break-word;
   word-break: keep-all;
-  color: antiquewhite;
+  color: rgb(0, 0, 0);
 }
   
 #headright{ 
@@ -12,7 +12,7 @@
     text-align: right;
     position: relative;
     top: -50px;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
 }
 
 #textright{
@@ -20,15 +20,15 @@
   text-align: right;
   position: relative;
   top: -35px;
-  color: antiquewhite;
+  color: rgb(0, 0, 0);
 }
 
 body{
-  background-color: black;
+  background-color: rgb(245, 245, 245);
 }
 
 #white{
-  color: antiquewhite;
+  color: rgb(5, 5, 4);
 }
 
 header{  
@@ -39,9 +39,9 @@ header{
   height: 40px;  
   font-size: 20px;
   border-radius: 5px;
-  color: azure;
+  color: rgb(0, 0, 0);
   }  
 
 #h1{
-    color: azure;
+    color: rgb(0, 0, 0);
   }

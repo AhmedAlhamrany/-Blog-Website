@@ -8,23 +8,25 @@
 <form action="/posts/add" method="POST" enctype="multipart/form-data">
 
 <label for="featureImage">Upload photo:</label><br>
-<input id="featureImage" type="file" name="featureImage" required><br><br>
+<input id="featureImage" type="file" name="featureImage"><br><br>
 
 <label for="title">Title:</label><br>
-<input id="title" type="text" name="title" required/><br><br>
+<input id="title" type="text" name="title"/><br><br>
 
 <label for="body">Body:</label><br>
-<textarea id="body" rows="7" cols="50" name="body" required></textarea><br><br>
+<textarea id="body" rows="7" cols="50" name="body"></textarea><br><br>
 
-<label for="category">Category:</label><br>
-<select id="category" name="category" required>
-<option value="" disabled selected hidden>Options</option>
-<option value="1">Technology</option>
-<option value="2">Gaming</option>
-<option value="3">Fashion</option>
-<option value="4">Education</option>
-<option value="5">Wellness</option>
-</select><br><br>
+{{#if categories}}
+      <select class="form-control" name="category" id="category">
+            <option value="" >Select Category</option>
+            {{#each categories}}
+                  <option value="{{id}}">{{category}}</option>
+            {{/each}}
+      </select>
+{{else}}
+      <div>No Categories</div>
+{{/if}}
+<br><br>
 
 <label for="body">Published:</label><br>
 <input id="published" type="radio" name="published"> Yes<br><br>
