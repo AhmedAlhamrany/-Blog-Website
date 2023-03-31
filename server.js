@@ -150,10 +150,12 @@ app.get('/posts', (req, res) => {
 
     queryPromise.then(data => {
 
-        if(data.length > 0){
+        if(data.length > 0)
+        {
             res.render("posts", {posts: data});
         }
-        else{
+        else
+        {
             res.render("posts", {message: "no results"});
         }
 
@@ -310,10 +312,12 @@ app.get('/blog/:id', async (req, res) => {
 app.get('/categories', (req, res) => {
     blogData.getCategories().then((data => {
 
-        if(data.length > 0){
+        if(data.length > 0)
+        {
         res.render("categories", {categories: data});
         }
-        else{
+        else
+        {
             res.render("categories", {message: "no results"});
         }
     })).catch(err => {

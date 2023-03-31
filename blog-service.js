@@ -84,7 +84,7 @@ module.exports.getPostsByMinDate = function(minDateStr) {
             where: {postDate: {[gte]: new Date(minDateStr)}}
 
            }).then(function (data){
-            resolve(data);
+               resolve(data);
            }).catch(function (err){
             reject("no results returned");
            });
@@ -102,9 +102,9 @@ module.exports.getPostById = function(id){
                 where: { id: id}
     
             }).then(function (data){
-            resolve(data[0]);
+                resolve(data[0]);
             }).catch(function (err){
-            reject("no results returned");
+                reject("no results returned");
             });
         });
     });
@@ -233,7 +233,7 @@ module.exports.deleteCategoryById = function(id){
 
             Category.destroy({
                 where: {id : id}
-    
+
             }).then(function(){
                 resolve("destroyed");
             }).catch(function (err){
