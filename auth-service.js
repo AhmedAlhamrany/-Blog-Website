@@ -50,12 +50,12 @@ module.exports.registerUser = function(userData){
                     {
                         reject("There was an error creating the user: " + err)
                     }
-                })
+                });
             })
             .catch(err=>{
                 console.log(err); // Show any errors that occurred during the process
                 reject("There was an error encrypting the password");
-            });    
+            });
         }
         else
         {
@@ -73,7 +73,7 @@ module.exports.checkUser = function(userData){
             if(user.length === 0)
             {
                 reject("Unable to find user: " + userData.userName);
-            } 
+            }
 
                 bcrypt.compare(userData.password, user[0].password).then((result) => {
                     // result === true if it matches and result === false if it does not match
