@@ -371,7 +371,7 @@ app.get('/register', (req,res) =>{
 });
 
 app.post('/register', (req, res)=>{
-
+    
     authData.registerUser(req.body).then(()=>{
         res.render("register", {successMessage: "User created"});
     }).catch((err)=>{
@@ -380,7 +380,7 @@ app.post('/register', (req, res)=>{
 });
 
 app.post('/login', (req,res)=>{
-
+    
     req.body.userAgent = req.get('User-Agent');
     
     authData.checkUser(req.body).then((user) => {
@@ -390,7 +390,7 @@ app.post('/login', (req,res)=>{
             email: user.email,
             loginHistory: user.loginHistory
         };
-    
+
         res.redirect('/posts');
     }).catch((err)=>{
         res.render("login", {errorMessage: err, userName: req.body.userName})
