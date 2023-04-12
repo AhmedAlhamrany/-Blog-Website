@@ -395,7 +395,6 @@ app.post('/login', (req,res)=>{
     }).catch((err)=>{
         res.render("login", {errorMessage: err, userName: req.body.userName})
     })
-    
 });
 
 app.get('/logout', (req, res)=>{
