@@ -92,7 +92,7 @@ app.use(clientSessions({
 app.use(function(req, res, next) {
     res.locals.session = req.session;
     next();
-  });  
+});  
 
 function ensureLogin(req, res, next)
 {
@@ -380,7 +380,7 @@ app.post('/register', (req, res)=>{
 });
 
 app.post('/login', (req,res)=>{
-    
+
     req.body.userAgent = req.get('User-Agent');
     
     authData.checkUser(req.body).then((user) => {
