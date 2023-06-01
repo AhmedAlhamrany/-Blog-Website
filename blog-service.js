@@ -1,4 +1,3 @@
-//using clean version from assignment 4
 const Sequelize = require('sequelize');
 
 var sequelize = new Sequelize('wakzxfzs', 'wakzxfzs', '0gHXdYDYYnP-OLWEw6W6MKJxCl8bPi5Z', {
