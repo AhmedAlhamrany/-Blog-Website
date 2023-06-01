@@ -1,4 +1,4 @@
-# Blog-Website
+# Blog-Website (school project)
 * Developed a blog website using Node.js and Express.js where users can create, read, and delete blogs
 * Designed the website using Handlebars.js
 * Integrated Postgres database to store blogs
