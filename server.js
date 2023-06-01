@@ -1,19 +1,3 @@
-/*********************************************************************************
-*  WEB322 – Assignment 06
-*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part 
-*  of this assignment has been copied manually or electronically from any other source 
-*  (including 3rd party web sites) or distributed to other students.
-* 
-*  Name: Ahmed Alhamrany Student ID: 144654217 Date: 4/12/2023
-*
-*  Cyclic Web App URL: https://rich-pink-termite-wear.cyclic.app/
-* 
-*  GitHub Repository URL: https://github.com/AhmedAlhamrany/web322-app
-*
-********************************************************************************/ 
-
-
-//using clean version from assignment 4
 const express = require('express');
 const blogData = require("./blog-service");
 const authData = require("./auth-service");
