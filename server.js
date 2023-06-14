@@ -30,18 +30,6 @@ const stripJs = require('strip-js');
 
 const app = express();
 
-const views = "views/cert/"
-
-const HTTP_PORT = process.env.PORT || 8080;
-const HTTPS_PORT = 4433;
-const SSL_KEY_FILE = views + "server.key";
-const SSL_CRT_FILE = views + "server.crt";
-
-const https_options = {
-    key: fs.readFileSync(__dirname + "/" + SSL_KEY_FILE),
-    cert: fs.readFileSync(__dirname + "/" + SSL_CRT_FILE)
-};
-
 cloudinary.config({
     cloud_name: 'dnsozvyrl',
     api_key: '712444667688893',
@@ -419,9 +407,10 @@ function onHttpsStart() {
     console.log("Express https server listening on: " + HTTPS_PORT);
 }
 
-blogData.initialize().then(authData.initialize).then(() => {
-    http.createServer(app).listen(HTTP_PORT, onHttpStart);
-https.createServer(https_options, app).listen(HTTPS_PORT, onHttpsStart);
+blogData.initialize().then(() => {
+    app.listen(HTTP_PORT, () => {
+        console.log('server listening on: ' + HTTP_PORT);
+    });
 }).catch((err) => {
     console.log(err);
 })
