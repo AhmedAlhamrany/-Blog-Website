@@ -1,19 +1,3 @@
-/*********************************************************************************
-*  WEB322 – Assignment 06
-*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part 
-*  of this assignment has been copied manually or electronically from any other source 
-*  (including 3rd party web sites) or distributed to other students.
-* 
-*  Name: Ahmed Alhamrany Student ID: 144654217 Date: 4/12/2023
-*
-*  Cyclic Web App URL: https://rich-pink-termite-wear.cyclic.app/
-* 
-*  GitHub Repository URL: https://github.com/AhmedAlhamrany/web322-app
-*
-********************************************************************************/ 
-
-
-//using clean version from assignment 4
 const express = require('express');
 const blogData = require("./blog-service");
 const authData = require("./auth-service");
@@ -29,6 +13,18 @@ const path = require("path");
 const stripJs = require('strip-js');
 
 const app = express();
+
+const views = "views/cert/"
+
+const HTTP_PORT = process.env.PORT || 8080;
+const HTTPS_PORT = 4433;
+const SSL_KEY_FILE = views + "server.key";
+const SSL_CRT_FILE = views + "server.crt";
+
+const https_options = {
+    key: fs.readFileSync(__dirname + "/" + SSL_KEY_FILE),
+    cert: fs.readFileSync(__dirname + "/" + SSL_CRT_FILE)
+};
 
 cloudinary.config({
     cloud_name: 'dnsozvyrl',
@@ -407,10 +403,9 @@ function onHttpsStart() {
     console.log("Express https server listening on: " + HTTPS_PORT);
 }
 
-blogData.initialize().then(() => {
-    app.listen(HTTP_PORT, () => {
-        console.log('server listening on: ' + HTTP_PORT);
-    });
+blogData.initialize().then(authData.initialize).then(() => {
+    http.createServer(app).listen(HTTP_PORT, onHttpStart);
+https.createServer(https_options, app).listen(HTTPS_PORT, onHttpsStart);
 }).catch((err) => {
     console.log(err);
 })
