@@ -4,4 +4,5 @@
 * Integrated Postgres database to store blogs
 * Used MongoDB to manage and crypt passwords for user accounts
 * Technologies used: JavaScript, Handlebars.js, Express.js, Node.js, Postgres, MongoDB
+
 This is just for learning purposes. Please do not copy this
